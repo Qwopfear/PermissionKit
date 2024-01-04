@@ -22,6 +22,6 @@ public class PermissionKitServiceImpl implements PermissionKitService {
 
     @Override
     public boolean hasPermission(String authorityName) {
-        return getCurrentUserAuthority().contains(authorityName);
+        return getCurrentUserAuthority().stream().anyMatch(el -> el.equals(authorityName));
     }
 }
